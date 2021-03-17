@@ -12,9 +12,11 @@ pipeline {
                 sh './gradlew test'
             }
         }
-        stage ("SonarQube analysis") {
+        stage('Sonarqube') {
             steps {
-                sh './gradlew sonarqube'
+                withSonarQubeEnv('Sonarqube') {
+                    sh './gradlew sonarqube -Dsonar.projectKey=ovh.sepradc:testGradle -Dsonar.junit.reportPaths=./build/test-results/test -Dsonar.binaries=./build/classes'
+                }
             }
         }
     }
