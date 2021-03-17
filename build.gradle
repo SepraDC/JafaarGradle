@@ -2,9 +2,10 @@ plugins {
     id 'java'
     id 'application'
     id 'java-library'
+    id "org.sonarqube" version "3.0"
 }
 
-group 'org.example'
+group 'ovh.sepradc'
 version '1.0-SNAPSHOT'
 
 repositories {
